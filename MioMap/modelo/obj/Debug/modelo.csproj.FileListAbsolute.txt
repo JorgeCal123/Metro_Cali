@@ -1,0 +1,29 @@
+C:\Users\juanm\source\repos\MioMap\MioMap\modelo\bin\Debug\modelo.dll
+C:\Users\juanm\source\repos\MioMap\MioMap\modelo\bin\Debug\modelo.pdb
+C:\Users\juanm\source\repos\MioMap\MioMap\modelo\obj\Debug\modelo.csprojAssemblyReference.cache
+C:\Users\juanm\source\repos\MioMap\MioMap\modelo\obj\Debug\modelo.dll
+C:\Users\juanm\source\repos\MioMap\MioMap\modelo\obj\Debug\modelo.pdb
+C:\Users\DH\Desktop\mioMap\MioMap\MioMap\modelo\bin\Debug\modelo.dll
+C:\Users\DH\Desktop\mioMap\MioMap\MioMap\modelo\bin\Debug\modelo.pdb
+C:\Users\DH\Desktop\mioMap\MioMap\MioMap\modelo\obj\Debug\modelo.csprojAssemblyReference.cache
+C:\Users\DH\Desktop\mioMap\MioMap\MioMap\modelo\obj\Debug\modelo.csproj.CoreCompileInputs.cache
+C:\Users\DH\Desktop\mioMap\MioMap\MioMap\modelo\obj\Debug\modelo.dll
+C:\Users\DH\Desktop\mioMap\MioMap\MioMap\modelo\obj\Debug\modelo.pdb
+C:\Users\LENOVO\Source\Repos\144blue\MioMap\MioMap\modelo\bin\Debug\modelo.dll
+C:\Users\LENOVO\Source\Repos\144blue\MioMap\MioMap\modelo\bin\Debug\modelo.pdb
+C:\Users\LENOVO\Source\Repos\144blue\MioMap\MioMap\modelo\obj\Debug\modelo.csprojAssemblyReference.cache
+C:\Users\LENOVO\Source\Repos\144blue\MioMap\MioMap\modelo\obj\Debug\modelo.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Source\Repos\144blue\MioMap\MioMap\modelo\obj\Debug\modelo.dll
+C:\Users\LENOVO\Source\Repos\144blue\MioMap\MioMap\modelo\obj\Debug\modelo.pdb
+C:\Users\LENOVO\source\repos\copia Respaldo\Nueva carpeta\MioMap\MioMap\modelo\bin\Debug\modelo.dll
+C:\Users\LENOVO\source\repos\copia Respaldo\Nueva carpeta\MioMap\MioMap\modelo\bin\Debug\modelo.pdb
+C:\Users\LENOVO\source\repos\copia Respaldo\Nueva carpeta\MioMap\MioMap\modelo\obj\Debug\modelo.csprojAssemblyReference.cache
+C:\Users\LENOVO\source\repos\copia Respaldo\Nueva carpeta\MioMap\MioMap\modelo\obj\Debug\modelo.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\copia Respaldo\Nueva carpeta\MioMap\MioMap\modelo\obj\Debug\modelo.dll
+C:\Users\LENOVO\source\repos\copia Respaldo\Nueva carpeta\MioMap\MioMap\modelo\obj\Debug\modelo.pdb
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro-Cali\MioMap\modelo\obj\Debug\modelo.csprojAssemblyReference.cache
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro-Cali\MioMap\modelo\obj\Debug\modelo.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro-Cali\MioMap\modelo\obj\Debug\modelo.dll
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro-Cali\MioMap\modelo\obj\Debug\modelo.pdb
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro-Cali\MioMap\modelo\bin\Debug\modelo.dll
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro-Cali\MioMap\modelo\bin\Debug\modelo.pdb
