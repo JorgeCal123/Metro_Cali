@@ -43,7 +43,6 @@ namespace MioMap
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -83,6 +82,7 @@ namespace MioMap
             this.gMapControl1.Size = new System.Drawing.Size(518, 415);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
+            this.gMapControl1.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.GMapControl1_OnMapZoomChanged);
             this.gMapControl1.Load += new System.EventHandler(this.GMapControl1_Load);
             this.gMapControl1.Resize += new System.EventHandler(this.Form1_Load);
             // 
@@ -190,16 +190,6 @@ namespace MioMap
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(154, 142);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "limpiar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click_1);
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(184, 275);
@@ -248,7 +238,6 @@ namespace MioMap
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.rbTodo);
             this.panel2.Controls.Add(this.button2);
@@ -302,7 +291,6 @@ namespace MioMap
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label2;

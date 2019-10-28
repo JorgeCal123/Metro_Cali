@@ -33,7 +33,7 @@ namespace modelo
             String[] hour = date[1].Split('.');
             String[] date2 = date[0].Split('-');
             String key = Int32.Parse(date2[0]) + "-" + date2[1] + "-" + Int32.Parse(date2[2]) + " " + Int32.Parse(hour[0]) + "." + Int32.Parse(hour[1]) + "." + Int32.Parse(hour[2]) + " " + date[2];
-
+       //     Console.WriteLine(busId + "  "+key);
             if (!UbicationTime.ContainsKey(key))
             {
                 UbicationTime.Add(key, new Ubication(posX, posY));
