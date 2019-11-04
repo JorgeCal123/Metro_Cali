@@ -26,6 +26,16 @@ namespace MioMap
 
         GMapOverlay timeBusStatus;
 
+        GMapOverlay westStops;
+        GMapOverlay northStops;
+        GMapOverlay southStops;
+        GMapOverlay eastStops;
+
+        GMapOverlay westStations;
+        GMapOverlay northStations;
+        GMapOverlay southStations;
+        GMapOverlay eastStations;
+
         GMapOverlay onlyStops;
         GMapOverlay onlyStations;
         GMapOverlay onlyBus;
@@ -48,6 +58,16 @@ namespace MioMap
             onlyPolygon = new GMapOverlay();
             onlyStationStops = new GMapOverlay();
             busMovement = new Hashtable();
+
+            westStations = new GMapOverlay();
+            northStations = new GMapOverlay();
+            southStations = new GMapOverlay();
+            eastStations = new GMapOverlay();
+
+            westStops = new GMapOverlay();
+            northStops = new GMapOverlay();
+            southStops = new GMapOverlay();
+            eastStops = new GMapOverlay();
         }
 
 
@@ -66,6 +86,7 @@ namespace MioMap
             gMapControl1.ShowCenter = false;
 
             printStops();
+            printStations();
             PrintPolygons();
         }
 
@@ -75,15 +96,94 @@ namespace MioMap
         {
             Bitmap b = (Bitmap)Image.FromFile("./2.png");
 
-            ICollection keys = model.Stops.Keys;
+            ICollection westKeys = model.WestStops.Keys;
+            ICollection northKeys = model.NorthStops.Keys;
+            ICollection southKeys = model.SouthStops.Keys;
+            ICollection eastKeys = model.EastStops.Keys;
 
-            foreach (String a in keys)
+            foreach (String a in westKeys)
             {
-                double la = double.Parse(((Stop)(model.Stops[a])).Gps_Y, CultureInfo.InvariantCulture);
-                double lon = double.Parse(((Stop)(model.Stops[a])).Gps_X, CultureInfo.InvariantCulture);
-                onlyStops.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+
+                double la = double.Parse(((Stop)(model.WestStops[a])).Gps_Y, CultureInfo.InvariantCulture);
+                double lon = double.Parse(((Stop)(model.WestStops[a])).Gps_X, CultureInfo.InvariantCulture);
+                westStops.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
             }
 
+            foreach (String a in northKeys)
+            {
+
+                double la = double.Parse(((Stop)(model.NorthStops[a])).Gps_Y, CultureInfo.InvariantCulture);
+                double lon = double.Parse(((Stop)(model.NorthStops[a])).Gps_X, CultureInfo.InvariantCulture);
+                northStops.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+
+            }
+
+            foreach (String a in southKeys)
+            {
+
+                double la = double.Parse(((Stop)(model.SouthStops[a])).Gps_Y, CultureInfo.InvariantCulture);
+                double lon = double.Parse(((Stop)(model.SouthStops[a])).Gps_X, CultureInfo.InvariantCulture);
+                southStops.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+
+            }
+
+            foreach (String a in eastKeys)
+            {
+
+                double la = double.Parse(((Stop)(model.EastStops[a])).Gps_Y, CultureInfo.InvariantCulture);
+                double lon = double.Parse(((Stop)(model.EastStops[a])).Gps_X, CultureInfo.InvariantCulture);
+                eastStops.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+
+            }
+        }
+
+        public void printStations()
+        {
+            Bitmap b = (Bitmap)Image.FromFile("./4.png");
+
+            ICollection westKeys = model.WestStations.Keys;
+            ICollection northKeys = model.NorthStations.Keys;
+            ICollection southKeys = model.SouthStations.Keys;
+            ICollection eastKeys = model.EastStations.Keys;
+            int estaciones = 0;
+            try
+            {
+                foreach (String a in westKeys)
+                {
+
+                    double la = double.Parse(((Stop)(model.WestStations[a])).Gps_Y, CultureInfo.InvariantCulture);
+                    double lon = double.Parse(((Stop)(model.WestStations[a])).Gps_X, CultureInfo.InvariantCulture);
+                    westStations.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+                }
+
+                foreach (String a in northKeys)
+                {
+
+                    double la = double.Parse(((Stop)(model.NorthStations[a])).Gps_Y, CultureInfo.InvariantCulture);
+                    double lon = double.Parse(((Stop)(model.NorthStations[a])).Gps_X, CultureInfo.InvariantCulture);
+                    northStations.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+                }
+
+                foreach (String a in southKeys)
+                {
+
+                    double la = double.Parse(((Stop)(model.SouthStations[a])).Gps_Y, CultureInfo.InvariantCulture);
+                    double lon = double.Parse(((Stop)(model.SouthStations[a])).Gps_X, CultureInfo.InvariantCulture);
+                    southStations.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+                }
+
+                foreach (String a in eastKeys)
+                {
+
+                    double la = double.Parse(((Stop)(model.EastStations[a])).Gps_Y, CultureInfo.InvariantCulture);
+                    double lon = double.Parse(((Stop)(model.EastStations[a])).Gps_X, CultureInfo.InvariantCulture);
+                    eastStations.Markers.Add(new GMarkerGoogle(new PointLatLng(la, lon), b));
+                }
+            }
+            catch (NullReferenceException)
+            {
+                estaciones++;
+            }
         }
 
 
@@ -428,6 +528,102 @@ namespace MioMap
         
         }
 
+        private void cbZonas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbEstaciones.Checked = false;
+            cbParadas.Checked = false;
+            cbTodo.Checked = false;
+        }
+
+        private void cbTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            limpiarOpciones();
+            gMapControl1.Overlays.Clear();
+            if (cbZonas.SelectedItem.Equals("Zona Norte"))
+            {
+                gMapControl1.Overlays.Add(northStations);
+                gMapControl1.Overlays.Add(northStops);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Oeste"))
+            {
+                gMapControl1.Overlays.Add(westStations);
+                gMapControl1.Overlays.Add(westStops);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Oriente"))
+            {
+                gMapControl1.Overlays.Add(eastStations);
+                gMapControl1.Overlays.Add(eastStops);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Sur"))
+            {
+                gMapControl1.Overlays.Add(southStations);
+                gMapControl1.Overlays.Add(southStops);
+            }
+        }
+
+        private void cbParadas_CheckedChanged(object sender, EventArgs e)
+        {
+            limpiarOpciones();
+            gMapControl1.Overlays.Clear();
+            if (cbZonas.SelectedItem.Equals("Zona Norte"))
+            {
+                gMapControl1.Overlays.Add(northStops);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Oeste"))
+            {
+                gMapControl1.Overlays.Add(westStops);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Oriente"))
+            {
+                gMapControl1.Overlays.Add(eastStops);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Sur"))
+            {
+                gMapControl1.Overlays.Add(southStops);
+            }
+        }
+
+        private void cbEstaciones_CheckedChanged(object sender, EventArgs e)
+        {
+            limpiarOpciones();
+            gMapControl1.Overlays.Clear();
+            if (cbZonas.SelectedItem.Equals("Zona Norte"))
+            {
+                gMapControl1.Overlays.Add(northStations);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Oeste"))
+            {
+                gMapControl1.Overlays.Add(westStations);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Oriente"))
+            {
+                gMapControl1.Overlays.Add(eastStations);
+            }
+            else if (cbZonas.SelectedItem.Equals("Zona Sur"))
+            {
+                gMapControl1.Overlays.Add(southStations);
+            }
+        }
+
+        public void limpiarOpciones()
+        {
+            if (cbTodo.Checked)
+            {
+                cbEstaciones.Checked = false;
+                cbParadas.Checked = false;
+            }
+            else if (cbParadas.Checked)
+            {
+                cbTodo.Checked = false;
+                cbEstaciones.Checked = false;
+            }
+            else
+            {
+                cbParadas.Checked = false;
+                cbTodo.Checked = false;
+            }
+            gMapControl1.Refresh();
+        }
     }
 
   

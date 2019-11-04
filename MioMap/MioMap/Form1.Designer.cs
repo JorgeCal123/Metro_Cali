@@ -32,10 +32,7 @@ namespace MioMap
         {
             this.components = new System.ComponentModel.Container();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
-            this.rbParadas = new System.Windows.Forms.RadioButton();
-            this.rbEstaciones = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbTodo = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
@@ -48,6 +45,10 @@ namespace MioMap
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbTodo = new System.Windows.Forms.CheckBox();
+            this.cbEstaciones = new System.Windows.Forms.CheckBox();
+            this.cbParadas = new System.Windows.Forms.CheckBox();
+            this.cbZonas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -86,52 +87,19 @@ namespace MioMap
             this.gMapControl1.Load += new System.EventHandler(this.GMapControl1_Load);
             this.gMapControl1.Resize += new System.EventHandler(this.Form1_Load);
             // 
-            // rbParadas
-            // 
-            this.rbParadas.AutoSize = true;
-            this.rbParadas.Location = new System.Drawing.Point(48, 165);
-            this.rbParadas.Name = "rbParadas";
-            this.rbParadas.Size = new System.Drawing.Size(77, 17);
-            this.rbParadas.TabIndex = 1;
-            this.rbParadas.Text = "Estaciones";
-            this.rbParadas.UseVisualStyleBackColor = true;
-            this.rbParadas.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
-            // 
-            // rbEstaciones
-            // 
-            this.rbEstaciones.AutoSize = true;
-            this.rbEstaciones.Location = new System.Drawing.Point(48, 142);
-            this.rbEstaciones.Name = "rbEstaciones";
-            this.rbEstaciones.Size = new System.Drawing.Size(64, 17);
-            this.rbEstaciones.TabIndex = 2;
-            this.rbEstaciones.Text = "Paradas";
-            this.rbEstaciones.UseVisualStyleBackColor = true;
-            this.rbEstaciones.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 103);
+            this.label1.Location = new System.Drawing.Point(10, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Mostrar alguna de las siguientes opciones:";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // rbTodo
-            // 
-            this.rbTodo.AutoSize = true;
-            this.rbTodo.Location = new System.Drawing.Point(48, 119);
-            this.rbTodo.Name = "rbTodo";
-            this.rbTodo.Size = new System.Drawing.Size(50, 17);
-            this.rbTodo.TabIndex = 4;
-            this.rbTodo.Text = "Todo";
-            this.rbTodo.UseVisualStyleBackColor = true;
-            this.rbTodo.CheckedChanged += new System.EventHandler(this.rbTodo_CheckedChanged);
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 259);
+            this.button2.Location = new System.Drawing.Point(15, 305);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 39);
             this.button2.TabIndex = 6;
@@ -146,7 +114,7 @@ namespace MioMap
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 214);
+            this.button1.Location = new System.Drawing.Point(15, 260);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 39);
             this.button1.TabIndex = 8;
@@ -166,7 +134,7 @@ namespace MioMap
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(130, 214);
+            this.button3.Location = new System.Drawing.Point(132, 260);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 39);
             this.button3.TabIndex = 10;
@@ -192,7 +160,7 @@ namespace MioMap
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(184, 275);
+            this.button5.Location = new System.Drawing.Point(186, 321);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(25, 23);
             this.button5.TabIndex = 14;
@@ -202,7 +170,7 @@ namespace MioMap
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(153, 275);
+            this.button6.Location = new System.Drawing.Point(155, 321);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(25, 23);
             this.button6.TabIndex = 15;
@@ -213,7 +181,7 @@ namespace MioMap
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 259);
+            this.label2.Location = new System.Drawing.Point(135, 305);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 16;
@@ -237,14 +205,15 @@ namespace MioMap
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.cbZonas);
+            this.panel2.Controls.Add(this.cbParadas);
+            this.panel2.Controls.Add(this.cbEstaciones);
+            this.panel2.Controls.Add(this.cbTodo);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.rbTodo);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.rbEstaciones);
             this.panel2.Controls.Add(this.UbicationTime);
-            this.panel2.Controls.Add(this.rbParadas);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button6);
@@ -253,6 +222,53 @@ namespace MioMap
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(245, 415);
             this.panel2.TabIndex = 1;
+            // 
+            // cbTodo
+            // 
+            this.cbTodo.AutoSize = true;
+            this.cbTodo.Location = new System.Drawing.Point(33, 164);
+            this.cbTodo.Name = "cbTodo";
+            this.cbTodo.Size = new System.Drawing.Size(51, 17);
+            this.cbTodo.TabIndex = 17;
+            this.cbTodo.Text = "Todo";
+            this.cbTodo.UseVisualStyleBackColor = true;
+            this.cbTodo.CheckedChanged += new System.EventHandler(this.cbTodo_CheckedChanged);
+            // 
+            // cbEstaciones
+            // 
+            this.cbEstaciones.AutoSize = true;
+            this.cbEstaciones.Location = new System.Drawing.Point(33, 188);
+            this.cbEstaciones.Name = "cbEstaciones";
+            this.cbEstaciones.Size = new System.Drawing.Size(78, 17);
+            this.cbEstaciones.TabIndex = 18;
+            this.cbEstaciones.Text = "Estaciones";
+            this.cbEstaciones.UseVisualStyleBackColor = true;
+            this.cbEstaciones.CheckedChanged += new System.EventHandler(this.cbEstaciones_CheckedChanged);
+            // 
+            // cbParadas
+            // 
+            this.cbParadas.AutoSize = true;
+            this.cbParadas.Location = new System.Drawing.Point(33, 212);
+            this.cbParadas.Name = "cbParadas";
+            this.cbParadas.Size = new System.Drawing.Size(65, 17);
+            this.cbParadas.TabIndex = 19;
+            this.cbParadas.Text = "Paradas";
+            this.cbParadas.UseVisualStyleBackColor = true;
+            this.cbParadas.CheckedChanged += new System.EventHandler(this.cbParadas_CheckedChanged);
+            // 
+            // cbZonas
+            // 
+            this.cbZonas.FormattingEnabled = true;
+            this.cbZonas.Items.AddRange(new object[] {
+            "Zona Norte",
+            "Zona Sur",
+            "Zona Oeste",
+            "Zona Oriente"});
+            this.cbZonas.Location = new System.Drawing.Point(33, 128);
+            this.cbZonas.Name = "cbZonas";
+            this.cbZonas.Size = new System.Drawing.Size(165, 21);
+            this.cbZonas.TabIndex = 20;
+            this.cbZonas.SelectedIndexChanged += new System.EventHandler(this.cbZonas_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -280,10 +296,7 @@ namespace MioMap
         #endregion
 
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
-        private System.Windows.Forms.RadioButton rbParadas;
-        private System.Windows.Forms.RadioButton rbEstaciones;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rbTodo;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
@@ -296,6 +309,10 @@ namespace MioMap
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox cbZonas;
+        private System.Windows.Forms.CheckBox cbParadas;
+        private System.Windows.Forms.CheckBox cbEstaciones;
+        private System.Windows.Forms.CheckBox cbTodo;
     }
 }
 

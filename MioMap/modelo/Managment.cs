@@ -11,9 +11,19 @@ namespace modelo
 {
     public class Managment
     {
-        const string ABSOLUTE_PATH_STOPS = "D:/Trabajos/Trabajos sexto/Proyecto integrador/Proyecto Metro Cali/Datos/data/stops.csv";
-        const string ABSOLUTE_PATH_DATAGRAM = "D:/Trabajos/Trabajos sexto/Proyecto integrador/Proyecto Metro Cali/Datos/data 2/DATAGRAMS.csv";
-        const string ABSOLUTE_PATH_BUS = "D:/Trabajos/Trabajos sexto/Proyecto integrador/Proyecto Metro Cali/Datos/data/buses.csv";
+        const string ABSOLUTE_PATH_STOPS = "C:/Users/juanm/Downloads/Metrocali/data/stops.csv";
+        const string ABSOLUTE_PATH_DATAGRAM = "C:/Users/juanm/Downloads/DATAGRAMS.csv";
+        const string ABSOLUTE_PATH_BUS = "C:/Users/juanm/Downloads/Metrocali/data/buses.csv";
+
+        private Hashtable northStops;
+        private Hashtable eastStops;
+        private Hashtable southStops;
+        private Hashtable westStops;
+
+        private Hashtable westStations;
+        private Hashtable northStations;
+        private Hashtable eastStations;
+        private Hashtable southStations;
 
         Hashtable stops;
         Hashtable stations;
@@ -23,6 +33,16 @@ namespace modelo
         //Constructor 
         public Managment()
         {
+            westStops = new Hashtable();
+            eastStops = new Hashtable();
+            northStops = new Hashtable();
+            southStops = new Hashtable();
+
+            westStations = new Hashtable();
+            eastStations = new Hashtable();
+            northStations = new Hashtable();
+            southStations = new Hashtable();
+
             Stops = new Hashtable();
             Stations = new Hashtable();
             Bus1 = new Hashtable();
@@ -54,23 +74,77 @@ namespace modelo
                 if (!datos[6].Equals("0")|| !datos[7].Equals("0")) {
                     //                 Stop Id, Plan Version,   Short Name, Long Name, Gps x,    Gps Y
                     Stop a = new Stop((datos[0]), (datos[1]), datos[2], datos[3], datos[6], datos[7]);
-                    if (isStop(a.ShortName) == true)
+                    if (isWestZone(a))
                     {
-                        if (!Stations.ContainsKey(datos[0]))
+                        if (isStop(a.ShortName))
                         {
-                            CreateStation(a);
+                            if (!westStations.ContainsKey(datos[0]))
+                            {
+                                westStations.Add(datos[0], a);
+                            }
+                        }
+                        else
+                        {
+                            if (!westStops.ContainsKey(datos[0]))
+                            {
+                                westStops.Add(datos[0], a);
+                            }
+                        }
+                    }
+                    else if (isNorthZone(a) || isCenterZone(a))
+                    {
+                        if (isStop(a.ShortName))
+                        {
+                            if (!northStations.ContainsKey(datos[0]))
+                            {
+                                northStations.Add(datos[0], a);
+                            }
+                        }
+                        else
+                        {
+                            if (!northStops.ContainsKey(datos[0]))
+                            {
+                                northStops.Add(datos[0], a);
+                            }
+                        }
+                    }
+                    else if (isEastZone(a))
+                    {
+                        if (isStop(a.ShortName))
+                        {
+                            if (!eastStations.ContainsKey(datos[0]))
+                            {
+                                eastStations.Add(datos[0], a);
+                            }
+                        }
+                        else
+                        {
+                            if (!eastStops.ContainsKey(datos[0]))
+                            {
+                                eastStops.Add(datos[0], a);
+                            }
                         }
                     }
                     else
                     {
-                        if (!Stops.ContainsKey(datos[0]))
+                        if (isStop(a.ShortName))
                         {
-
-                            Stops.Add(datos[0], a);
+                            if (!southStations.ContainsKey(datos[0]))
+                            {
+                                southStations.Add(datos[0], a);
+                            }
                         }
+                        else
+                        {
+                            if (!southStops.ContainsKey(datos[0]))
+                            {
+                                southStops.Add(datos[0], a);
+                            }
+                        }
+
                     }
 
-                    
+
                 }
                 else
                 {
@@ -93,7 +167,7 @@ namespace modelo
                ShortName.Contains("CHIM") || ShortName.Contains("C.PALOS") ||
                ShortName.Contains("MELEN") || ShortName.Contains("ESTAD") ||
                ShortName.Contains("FATI") || ShortName.Contains("FLOR") ||
-               ShortName.Contains("FRAY") || ShortName.Contains("HORMI") ||
+               ShortName.Contains("FRAY") || 
                ShortName.Contains("L.AME") || ShortName.Contains("LIDO") ||
                ShortName.Contains("MANZA") || ShortName.Contains("MZAN") ||
                ShortName.Contains("N.LATIR") || ShortName.Contains("PAM") ||
@@ -113,7 +187,7 @@ namespace modelo
                ShortName.Contains("CALD") || ShortName.Contains("CAP") ||
                ShortName.Contains("CEN") || ShortName.Contains("CHAP") ||
                 ShortName.Contains("RIO") || ShortName.Contains("ERMI") ||
-               ShortName.Contains("BELA") || ShortName.Contains("BUIT") ||
+               ShortName.Contains("BELA") || ShortName.Contains("BUITRE") ||
                ShortName.Contains("TREB") || ShortName.Contains("TRON") ||
                ShortName.Contains("VLN") || ShortName.Contains("VIC") ||
                ShortName.Contains("VIP"))
@@ -122,7 +196,68 @@ namespace modelo
                 existe = true;
             }
                 return existe;
+        }
 
+        public bool isWestZone(Stop a)
+        {
+            bool salida = false;
+            double latitud = Double.Parse(a.Gps_Y, CultureInfo.InvariantCulture);
+            double longitud = Double.Parse(a.Gps_X, CultureInfo.InvariantCulture);
+            if ((latitud >= 3.440161 && longitud <= -76.536702)
+                && (latitud <= 3.462857 && longitud >= -76.578708)
+                || (latitud >= 3.422367 && longitud <= -76.547611)//3.422367, -76.547611
+                || (latitud >= 3.440478 && longitud <= -76.559365)//3.440478, -76.559365
+                || (latitud >= 3.432271 && longitud <= -76.543115) //3.432271, -76.543115
+                )
+            {
+                salida = true;
+            }
+            return salida;
+        }
+
+        public bool isEastZone(Stop a)
+        {
+            bool salida = false;
+            double latitud = Double.Parse(a.Gps_Y, CultureInfo.InvariantCulture);
+            double longitud = Double.Parse(a.Gps_X, CultureInfo.InvariantCulture);
+
+            if ((latitud >= 3.406574 && longitud >= -76.521705 //3.406574, -76.521705
+                && latitud <= 3.463656 && longitud <= -76.457907)
+                || (latitud <= 3.428325 && longitud >= -76.533173
+                && latitud >= 3.401965 && longitud <= -76.448308)
+                || (latitud <= 3.402450 && longitud >= -76.522392)//3.402450, -76.522392
+                && (latitud >= 3.391370 && longitud <= -76.454762) //3.391370, -76.454762
+                )
+            {
+                salida = true;
+            }
+            return salida;
+        }
+
+        public bool isCenterZone(Stop a)
+        {
+            bool salida = false;
+            double latitud = Double.Parse(a.Gps_Y, CultureInfo.InvariantCulture);
+            double longitud = Double.Parse(a.Gps_X, CultureInfo.InvariantCulture);
+            if (latitud >= 3.440856 && longitud >= -76.536904   //3.440856, -76.536904
+                && latitud <= 3.460096 && longitud <= -76.521034)//3.460096, -76.521034
+            {
+                salida = true;
+            }
+            return salida;
+        }
+
+        public bool isNorthZone(Stop a)
+        {
+            bool salida = false;
+            double latitud = Double.Parse(a.Gps_Y, CultureInfo.InvariantCulture);
+            double longitud = Double.Parse(a.Gps_X, CultureInfo.InvariantCulture);
+            if ((latitud >= 3.451321 && longitud >= -76.537168) //3.451321, -76.537168
+                && (latitud <= 3.510002 && longitud <= -76.472321)) //3.510002, -76.472321
+            {
+                salida = true;
+            }
+            return salida;
         }
 
         public String nameStop(String stp)
@@ -280,7 +415,14 @@ namespace modelo
         public Hashtable Stations { get => stations; set => stations = value; }
         public Hashtable Bus1 { get => bus1; set => bus1 = value; }
         public GenericTime RealTime { get => realTime; set => realTime = value; }
-
+        public Hashtable WestStops { get => westStops; set => westStops = value; }
+        public Hashtable NorthStops { get => northStops; set => northStops = value; }
+        public Hashtable EastStops { get => eastStops; set => eastStops = value; }
+        public Hashtable SouthStops { get => southStops; set => southStops = value; }
+        public Hashtable WestStations { get => westStations; set => westStations = value; }
+        public Hashtable NorthStations { get => northStations; set => northStations = value; }
+        public Hashtable EastStations { get => eastStations; set => eastStations = value; }
+        public Hashtable SouthStations { get => southStations; set => southStations = value; }
     }
 
 
