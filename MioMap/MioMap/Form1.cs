@@ -44,11 +44,15 @@ namespace MioMap
 
         String idBus;
 
+        Boolean stopsR = false;
+        Boolean datagramR = false;
+        Boolean busR = false;
 
         //Construtor
         public Form1()
         {
             InitializeComponent();
+
             model = new Managment();
             Activo = false;
             timeBusStatus = new GMapOverlay();
@@ -623,6 +627,55 @@ namespace MioMap
                 cbTodo.Checked = false;
             }
             gMapControl1.Refresh();
+        }
+
+
+
+        private void cargarParadas_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "CSV Files(*.csv)|*.csv";
+            ofd.FilterIndex = 0;
+            ofd.RestoreDirectory = true;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                String selected = ofd.FileName;
+                model.selectStops(selected);
+
+                stopsR = true;
+
+            }
+        }
+
+        private void cargarDatagrama_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "CSV Files(*.csv)|*.csv";
+            ofd.FilterIndex = 0;
+            ofd.RestoreDirectory = true;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                String selected = ofd.FileName;
+                model.selectDatagram(selected);
+             
+                datagramR = true;
+                
+            }
+        }
+
+        private void cargarBuses_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "CSV Files(*.csv)|*.csv";
+            ofd.FilterIndex = 0;
+            ofd.RestoreDirectory = true;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                String selected = ofd.FileName;
+                model.selectBus(selected);
+
+                busR = true;
+            }
         }
     }
 

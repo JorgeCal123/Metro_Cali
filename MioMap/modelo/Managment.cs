@@ -11,9 +11,9 @@ namespace modelo
 {
     public class Managment
     {
-        const string ABSOLUTE_PATH_STOPS = "C:/Users/juanm/Downloads/Metrocali/data/stops.csv";
-        const string ABSOLUTE_PATH_DATAGRAM = "C:/Users/juanm/Downloads/DATAGRAMS.csv";
-        const string ABSOLUTE_PATH_BUS = "C:/Users/juanm/Downloads/Metrocali/data/buses.csv";
+        public  string RELATIVE_PATH_STOPS = "";
+        public  string RELATIVE_PATH_DATAGRAM = "";
+        public  string RELATIVE_PATH_BUS = ""; 
 
         private Hashtable northStops;
         private Hashtable eastStops;
@@ -57,12 +57,26 @@ namespace modelo
         }
 
    
+        public void selectStops(String stopsFile)
+        {
+            RELATIVE_PATH_STOPS = stopsFile;
+        }
+
+        public void selectDatagram(String datagramFile)
+        {
+            RELATIVE_PATH_DATAGRAM = datagramFile;
+        }
+
+        public void selectBus(String busFile)
+        {
+            RELATIVE_PATH_BUS = busFile;
+        }
 
 
         //Lee todas las paradas del archivo Stops y agrega las estaciones
         private void loadStops()
         {
-            StreamReader reader = new StreamReader(ABSOLUTE_PATH_STOPS);
+            StreamReader reader = new StreamReader(RELATIVE_PATH_STOPS);
             string line = reader.ReadLine();         
             line = reader.ReadLine();
 
@@ -328,7 +342,7 @@ namespace modelo
         public void timeReading()
 
         {
-            StreamReader sr = new StreamReader(ABSOLUTE_PATH_DATAGRAM);
+            StreamReader sr = new StreamReader(RELATIVE_PATH_DATAGRAM);
         
             String line = sr.ReadLine();
             line = sr.ReadLine();
@@ -343,7 +357,8 @@ namespace modelo
                     if (dato[4].Equals("-1") || dato[5].Equals("-1"))
                     {
                         line = sr.ReadLine();
-                        dato = line.Split(',');
+                        Console.WriteLine(line);
+                       dato = line.Split(',');
                     }
                     else
                     {
@@ -383,7 +398,7 @@ namespace modelo
 
         public void createBus()
         {
-            StreamReader lector = new StreamReader(ABSOLUTE_PATH_BUS);
+            StreamReader lector = new StreamReader(RELATIVE_PATH_BUS);
             String line = lector.ReadLine();
             line = lector.ReadLine();
             while (line != null)
