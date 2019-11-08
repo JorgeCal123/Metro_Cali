@@ -38,3 +38,9 @@ C:\Users\juanm\Source\Repos\Metro_Cali\MioMap\modelo\bin\Debug\modelo.pdb
 C:\Users\juanm\Source\Repos\Metro_Cali\MioMap\modelo\obj\Debug\modelo.csprojAssemblyReference.cache
 C:\Users\juanm\Source\Repos\Metro_Cali\MioMap\modelo\obj\Debug\modelo.dll
 C:\Users\juanm\Source\Repos\Metro_Cali\MioMap\modelo\obj\Debug\modelo.pdb
+C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\modelo\obj\Debug\modelo.dll
+C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\modelo\obj\Debug\modelo.pdb
+C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\modelo\bin\Debug\modelo.dll
+C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\modelo\bin\Debug\modelo.pdb
+C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\modelo\obj\Debug\modelo.csprojAssemblyReference.cache
+C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\modelo\obj\Debug\modelo.csproj.CoreCompileInputs.cache
