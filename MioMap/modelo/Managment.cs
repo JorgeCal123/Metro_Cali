@@ -11,9 +11,9 @@ namespace modelo
 {
     public class Managment
     {
-        public  string RELATIVE_PATH_STOPS = "";
-        public  string RELATIVE_PATH_DATAGRAM = "";
-        public  string RELATIVE_PATH_BUS = ""; 
+        public  string RELATIVE_PATH_STOPS = "C:/Users/juanm/OneDrive/Documentos/ICESI/6to/Integrador/stops.csv";
+        public  string RELATIVE_PATH_DATAGRAM = "C:/Users/juanm/OneDrive/Documentos/ICESI/6to/Integrador/integ/DATAGRAMS.csv";
+        public  string RELATIVE_PATH_BUS = "C:/Users/juanm/OneDrive/Documentos/ICESI/6to/Integrador/buses.csv"; 
 
         private Hashtable northStops;
         private Hashtable eastStops;
@@ -177,37 +177,45 @@ namespace modelo
             Boolean existe = false;
 
             if (ShortName.Contains("7-ago") || ShortName.Contains("ALA") ||
-               ShortName.Contains("AMAN") || ShortName.Contains("ATG") ||
-               ShortName.Contains("CHIM") || ShortName.Contains("C.PALOS") ||
-               ShortName.Contains("MELEN") || ShortName.Contains("ESTAD") ||
-               ShortName.Contains("FATI") || ShortName.Contains("FLOR") ||
-               ShortName.Contains("FRAY") || 
-               ShortName.Contains("L.AME") || ShortName.Contains("LIDO") ||
-               ShortName.Contains("MANZA") || ShortName.Contains("MZAN") ||
-               ShortName.Contains("N.LATIR") || ShortName.Contains("PAM") ||
-               ShortName.Contains("PTCU") || ShortName.Contains("PILO") ||
-               ShortName.Contains("CAY") || ShortName.Contains("PLATO") ||
-               ShortName.Contains("POPU") || ShortName.Contains("PRAD") ||
-               ShortName.Contains("PRIMI") || ShortName.Contains("REFU") ||
-               ShortName.Contains("SALO") || ShortName.Contains("SAN") ||
-               ShortName.Contains("SNT") || ShortName.Contains("ST.") ||
-               ShortName.Contains("STRO") || ShortName.Contains("SUC") ||
-               ShortName.Contains("CALS") || ShortName.Contains("PCO") ||
-               ShortName.Contains("T.C-") || ShortName.Contains("TEQU") ||
-               ShortName.Contains("SAN") || ShortName.Contains("TCAL") ||
-               ShortName.Contains("TMEN") || ShortName.Contains("TOR") ||
-               ShortName.Contains("UDP") || ShortName.Contains("UNIV") ||
-               ShortName.Contains("VERS") || ShortName.Contains("CONQ") ||
-               ShortName.Contains("CALD") || ShortName.Contains("CAP") ||
-               ShortName.Contains("CEN") || ShortName.Contains("CHAP") ||
-                ShortName.Contains("RIO") || ShortName.Contains("ERMI") ||
-               ShortName.Contains("BELA") || ShortName.Contains("BUITRE") ||
-               ShortName.Contains("TREB") || ShortName.Contains("TRON") ||
-               ShortName.Contains("VLN") || ShortName.Contains("VIC") ||
-               ShortName.Contains("VIP"))
+                        ShortName.Contains("AMAN") || ShortName.Contains("ATG") ||
+                        ShortName.Contains("CHIM") || ShortName.Contains("C.PALOS") ||
+                        ShortName.Contains("MELEN") || ShortName.Contains("ESTAD") ||
+                        ShortName.Contains("FATI") || ShortName.Contains("FLOR") ||
+                        ShortName.Contains("FRAY") || ShortName.Contains("SANBO") ||
+                        ShortName.Contains("SANIC") ||
+                        ShortName.Contains("L.AME") || ShortName.Contains("LIDO") ||
+                        ShortName.Contains("MANZA") || ShortName.Contains("MZAN") ||
+                        ShortName.Contains("N.LATIR") || ShortName.Contains("PAM") ||
+                        ShortName.Contains("PTCU") || ShortName.Contains("PILO") ||
+                        ShortName.Contains("CAY") || ShortName.Contains("PLATO") ||
+                        ShortName.Contains("POPU") || ShortName.Contains("PRAD") ||
+                        ShortName.Contains("PRIMI") || ShortName.Contains("REFU") ||
+                        ShortName.Contains("SALO") || ShortName.Contains("SANP") ||
+                        ShortName.Contains("SNT") || ShortName.Contains("ST.") ||
+                        ShortName.Contains("STRO") || ShortName.Contains("SUC") ||
+                        ShortName.Contains("CALS") || ShortName.Contains("PCO") ||
+                        ShortName.Contains("T.C-") || ShortName.Contains("TEQU") ||
+                        ShortName.Contains("A.SAN") || ShortName.Contains("TCAL") ||
+                        ShortName.Contains("TMEN") || ShortName.Contains("TOR") ||
+                        ShortName.Contains("UDP") || ShortName.Contains("UNIV") ||
+                        ShortName.Contains("VERS") || ShortName.Contains("CONQ") ||
+                        ShortName.Contains("CALD") || ShortName.Contains("CAPRI") ||
+                        ShortName.Contains("CEN") || ShortName.Contains("CHAPI") ||
+                        ShortName.Contains("RIO") || ShortName.Contains("ERMI") ||
+                        ShortName.Contains("BELA") || ShortName.Contains("BUITRE") ||
+                        ShortName.Contains("TREB") || ShortName.Contains("TRON") ||
+                        ShortName.Contains("VLN") || ShortName.Contains("VIC") ||
+                        ShortName.Contains("VIP"))
 
             {
                 existe = true;
+            } 
+            if (ShortName.Contains("VBUITRE") || ShortName.Contains("COL_FRAY")
+                || ShortName.Contains("V_BUI") || ShortName.Contains("AV-MELE")
+                || ShortName.Contains("V_CAS") || ShortName.Contains("VBUI")
+                || ShortName.Contains("AV-MELEN"))
+            {
+                existe = false;
             }
                 return existe;
         }
@@ -245,6 +253,10 @@ namespace modelo
             {
                 salida = true;
             }
+            if ((latitud == 3.43970167 && longitud == -76.522745) || (latitud == 3.43980417 && longitud == -76.52290361))
+            {
+                salida = true;
+            } 
             return salida;
         }
 
@@ -358,7 +370,7 @@ namespace modelo
                     {
                         line = sr.ReadLine();
                         Console.WriteLine(line);
-                       dato = line.Split(',');
+                        dato = line.Split(',');
                     }
                     else
                     {
@@ -389,7 +401,7 @@ namespace modelo
             Console.WriteLine("cargado");
         }
 
-       public void loadPorcentage()
+        public void loadPorcentage()
         {
             int total = 1048575;
             double porcentaje = cont / total;

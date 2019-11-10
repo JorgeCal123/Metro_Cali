@@ -534,9 +534,7 @@ namespace MioMap
 
         private void cbZonas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbEstaciones.Checked = false;
-            cbParadas.Checked = false;
-            cbTodo.Checked = false;
+            limpiarOpciones();
         }
 
         private void cbTodo_CheckedChanged(object sender, EventArgs e)
@@ -563,6 +561,8 @@ namespace MioMap
                 gMapControl1.Overlays.Add(southStations);
                 gMapControl1.Overlays.Add(southStops);
             }
+            gMapControl1.Zoom = gMapControl1.Zoom + 1;
+            gMapControl1.Zoom = gMapControl1.Zoom - 1;
         }
 
         private void cbParadas_CheckedChanged(object sender, EventArgs e)
@@ -585,6 +585,8 @@ namespace MioMap
             {
                 gMapControl1.Overlays.Add(southStops);
             }
+            gMapControl1.Zoom = gMapControl1.Zoom + 1;
+            gMapControl1.Zoom = gMapControl1.Zoom - 1;
         }
 
         private void cbEstaciones_CheckedChanged(object sender, EventArgs e)
@@ -607,6 +609,8 @@ namespace MioMap
             {
                 gMapControl1.Overlays.Add(southStations);
             }
+            gMapControl1.Zoom = gMapControl1.Zoom + 1;
+            gMapControl1.Zoom = gMapControl1.Zoom - 1;
         }
 
         public void limpiarOpciones()
