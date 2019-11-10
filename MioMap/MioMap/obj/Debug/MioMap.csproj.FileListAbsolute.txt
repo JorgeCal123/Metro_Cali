@@ -163,3 +163,6 @@ C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioM
 C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.GenerateResource.cache
 C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.CoreCompileInputs.cache
 C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.CopyComplete
+C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.Form2.resources
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.DialogRouteBus.resources
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.DialogDataAddress.resources

@@ -30,7 +30,16 @@ namespace modelo
             this.second = second;
             this.meridiem = meridiem;
         }
-
+        public GenericTime(int year, int day, string month2, int minute, int hour, int second, String meridiem)
+        {
+            this.year = year;
+            this.day = day;
+            this.month = parseMonth(month2);
+            this.minute = minute;
+            this.hour = hour;
+            this.second = second;
+            this.meridiem = meridiem;
+        }
         public int Year { get => year; set => year = value; }
         public int Day { get => day; set => day = value; }
         public int Month { get => month; set => month = value; }
@@ -111,7 +120,61 @@ namespace modelo
                 passYear();
             }
         }
+        public int parseMonth(String name)
+        {
+            int value = 0;
 
+            if (name.Equals("DIC"))
+            {
+                value = 12;
+            }
+            else if (name.Equals("NOV"))
+            {
+                value = 11;
+            }
+            else if (name.Equals("OCT"))
+            {
+                value = 10;
+            }
+            else if (name.Equals("SEP"))
+            {
+                value = 9;
+            }
+            else if (name.Equals("AGO"))
+            {
+                value = 8;
+            }
+            else if (name.Equals("JUL"))
+            {
+                value = 7;
+            }
+            else if (name.Equals("JUN"))
+            {
+                value = 6;
+            }
+            else if (name.Equals("MAY"))
+            {
+                value =5;
+            }
+            else if (name.Equals("ABR"))
+            {
+                value = 4;
+            }
+            else if (name.Equals("MAR"))
+            {
+                value = 3;
+            }
+            else if (name.Equals("FEB"))
+            {
+                value = 2;
+            }
+            else if (name.Equals("ENE"))
+            {
+                value = 1;
+            }
+
+            return value;
+        }
         public String parseMonth(int name)
         {
             String value = "";

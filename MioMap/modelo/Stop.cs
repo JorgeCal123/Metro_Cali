@@ -14,6 +14,7 @@ namespace modelo
         private string longName;
         private string gps_X;
         private string gps_Y;
+        private String zona;
 
         public Stop(String stopId, String planVersionId, string shortName, string longName, string gps_X, string gps_Y)
         {
@@ -31,5 +32,6 @@ namespace modelo
         public string LongName { get => longName; set => longName = value; }
         public string Gps_X { get => gps_X; set => gps_X = value; }
         public string Gps_Y { get => gps_Y; set => gps_Y = value; }
+        public string Zona { get => zona; set => zona = value; }
     }
 }
