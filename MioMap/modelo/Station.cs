@@ -11,9 +11,10 @@ namespace modelo
     {
         private String stationId;
         private Ubication ubi;
-       private String planVersionId;
+        private String planVersionId;
         private string shortName;
-        private string longName; 
+        private string longName;
+        private string zone;
 
         private Hashtable stops;
 
@@ -53,5 +54,6 @@ namespace modelo
         public string PlanVersionId { get => planVersionId; set => planVersionId = value; }
         public string ShortName { get => shortName; set => shortName = value; }
         public string LongName { get => longName; set => longName = value; }
+        public string Zone { get => zone; set => zone = value; }
     }
 }

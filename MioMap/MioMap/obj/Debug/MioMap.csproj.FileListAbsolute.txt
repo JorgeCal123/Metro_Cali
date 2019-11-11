@@ -163,6 +163,11 @@ C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioM
 C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.GenerateResource.cache
 C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.CoreCompileInputs.cache
 C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.CopyComplete
+<<<<<<< HEAD
+C:\Users\LENOVO\Source\Repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.Form2.resources
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.DialogRouteBus.resources
+C:\Users\LENOVO\source\repos\JorgeCal123\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.DialogDataAddress.resources
+=======
 C:\Users\juanm\Source\Repos\Metro_Cali\MioMap\MioMap\bin\Debug\MioMap.exe.config
 C:\Users\juanm\Source\Repos\Metro_Cali\MioMap\MioMap\bin\Debug\MioMap.exe
 C:\Users\juanm\Source\Repos\Metro_Cali\MioMap\MioMap\bin\Debug\MioMap.pdb
@@ -220,3 +225,4 @@ C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.Properties.
 C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.GenerateResource.cache
 C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.CoreCompileInputs.cache
 C:\Users\CASA\Source\Repos\Metro_Cali\MioMap\MioMap\obj\Debug\MioMap.csproj.CopyComplete
+>>>>>>> 66edb958d0130e57815f50a493d2a1e6f2023bd4

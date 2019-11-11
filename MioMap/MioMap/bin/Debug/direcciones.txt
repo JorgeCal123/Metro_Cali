@@ -1,0 +1,4 @@
+1,D:/Trabajos/Trabajos sexto/Proyecto integrador/Proyecto Metro Cali/Datos/data/stops.csv
+2,D:/Trabajos/Trabajos sexto/Proyecto integrador/Proyecto Metro Cali/Datos/data 2/DATAGRAMS.csv
+3,D:/Trabajos/Trabajos sexto/Proyecto integrador/Proyecto Metro Cali/Datos/data/buses.csv
+4,D:/Trabajos/Trabajos sexto/Proyecto integrador/Proyecto Metro Cali/Datos/data/lines.csv
